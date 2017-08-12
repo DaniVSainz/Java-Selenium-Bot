@@ -4,6 +4,11 @@ import java.io.DataOutputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
  
 public class HttpURLConnectionExample {
  
@@ -54,10 +59,10 @@ public class HttpURLConnectionExample {
     con.setRequestProperty("User-Agent", USER_AGENT);
  
     int responseCode = con.getResponseCode();
-    System.out.println("'GET' request to URL : " + url);
-    System.out.println("Response Code : " + responseCode);
- 
-    System.out.println("Response Body : ");
+//    System.out.println("'GET' request to URL : " + url);
+//    System.out.println("Response Code : " + responseCode);
+// 
+//    System.out.println("Response Body : ");
     BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream()));
     String inputLine;
     StringBuffer response = new StringBuffer();
@@ -69,6 +74,8 @@ public class HttpURLConnectionExample {
  
     result = response.toString();
     System.out.println(result);
+
+
     }
  
     public static void main(String[] args) {

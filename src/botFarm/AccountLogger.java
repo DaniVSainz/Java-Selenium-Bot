@@ -8,13 +8,13 @@ import java.io.IOException;
 
 public class AccountLogger {
 
-	public void logAccount(String username) {
+	public void logAccount(String username,String password) {
 		final String FILENAME = "/home/daniel/eclipse-workspace/GithubBot/accounts.txt";
 		
 	
 		try (BufferedWriter bw = new BufferedWriter(new FileWriter(FILENAME, true))) {
 
-			String content = username + "\n";
+			String content = username + "  " + "password is:" + password + "\n";
 
 			bw.write(content);
 

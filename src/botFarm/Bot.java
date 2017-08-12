@@ -21,7 +21,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 public class Bot {
+	static Random rand = new Random();
 
+	static int  randomNumber = rand.nextInt(1000+1);
+	static String password = "daniGetsBotted" + randomNumber + "$" ;
 	static String myGithub = "DaniVSainz";	
 	public static String username;
 	public WebDriver driver = new ChromeDriver();
@@ -42,11 +45,13 @@ public class Bot {
 		return username;
 	}
 	
-	public void generateEmail() {
-   		driver.get("https://maildrop.cc/");
-   		WebElement input = driver.findElement(By.xpath("//*[@id=\"inbox\"]"));
+	public void generateEmail(String username) {
+		WebDriver driver2 = new ChromeDriver();
+   		driver2.get("https://maildrop.cc/");
+   		WebElement input = driver2.findElement(By.xpath("//*[@id=\"inbox\"]"));
    		input.sendKeys(username);
-   		driver.findElement(By.xpath("//*[@id=\"custom\"]/div/div/div[1]/form/button")).click();
+   		driver2.findElement(By.xpath("//*[@id=\"custom\"]/div/div/div[1]/form/button")).click();
+   		driver2.quit();
 	}
 	
 	protected boolean validateUsername() {
@@ -59,6 +64,7 @@ public class Bot {
 		}
 	
 	public void botGithub() throws InterruptedException {
+
 		driver.get("https://github.com/");
 		driver.findElement(By.xpath("//*[@id=\"user[login]\"]")).sendKeys(username);
 		Thread.sleep(600);
@@ -68,6 +74,7 @@ public class Bot {
 			driver.findElement(By.xpath("//*[@id=\"user[login]\"]")).clear();
 			driver.findElement(By.xpath("//*[@id=\"user[login]\"]")).sendKeys(username);
 		}
+		generateEmail(username);
 		driver.findElement(By.xpath("//*[@id=\"user[email]\"]")).sendKeys(username + "@maildrop.cc");
 		driver.findElement(By.xpath("//*[@id=\"user[password]\"]")).sendKeys("daniGetsBotted123$");
 		driver.findElement(By.xpath("/html/body/div[4]/div[1]/div/div/div[2]/div/form/button")).click();
@@ -79,6 +86,25 @@ public class Bot {
 		Thread.sleep(300);
 		driver.findElement(By.xpath("//*[@id=\"user_search_results\"]/div/div/div[1]/span/span[1]/form/button")).click();
 	
+	}
+	
+	public void verifyEmail(String username) throws InterruptedException {
+		driver.get("https://maildrop.cc/");
+   		WebElement input = driver.findElement(By.xpath("//*[@id=\"inbox\"]"));
+   		input.sendKeys(username);
+   		driver.findElement(By.xpath("//*[@id=\"custom\"]/div/div/div[1]/form/button")).click();
+   		driver.findElement(By.xpath("//*[@id=\"inboxtbl\"]/tbody/tr/td[2]/a")).click();
+   		Thread.sleep(1500);
+   		String goHere = driver.findElement(By.xpath("/html/body/div[2]/p[3]/a")).getText();
+   		driver.get(goHere);
+	}
+	
+	public void loginToVerify(String username, String password) {
+		driver.findElement(By.xpath("//*[@id=\"login_field\"]")).sendKeys(username);
+		driver.findElement(By.xpath("//*[@id=\"password\"]")).sendKeys(password);
+		driver.findElement(By.xpath("//*[@id=\"login\"]/form/div[4]/input[3]")).click();
+
+		
 	}
 	
 //	public void imageGenerator() {
@@ -100,24 +126,27 @@ public class Bot {
 //		     }
 //	}
 	
-	public void fancyUserGenerator(){
-
-
 
    public static void main(String[] args) throws InterruptedException  {
 
 	   System.setProperty("webdriver.chrome.driver","/home/daniel/Documents/chromedriver");
 	   AccountLogger logger = new AccountLogger();
-	   Bot bot = new Bot();
-	   
 
-//       for(int i=1; i<500; i++){
-//    	   Bot bot = new Bot();
-//    	   bot.generateUsername();
+       for(int i=1; i<500; i++){
+    	   Bot bot = new Bot();
+    	   bot.generateUsername();
 //    	   bot.generateEmail();
-//    	   bot.botGithub();
-//    	   bot.killDriver();
-//      }
+    	   bot.botGithub();
+    	   Thread.sleep(20000);
+    	   bot.verifyEmail(username);
+    	   bot.loginToVerify(username, password);
+    	   bot.killDriver();
+    	   Random rand = new Random();
+    	   logger.logAccount(username, password);
+    	   System.out.println(username);
+    	   Thread.sleep(rand.nextInt(200000 + 35000));
+    	   
+      }
    }
 
 }
