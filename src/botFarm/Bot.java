@@ -94,7 +94,7 @@ public class Bot {
    		input.sendKeys(username);
    		driver.findElement(By.xpath("//*[@id=\"custom\"]/div/div/div[1]/form/button")).click();
    		driver.findElement(By.xpath("//*[@id=\"inboxtbl\"]/tbody/tr/td[2]/a")).click();
-   		Thread.sleep(1500);
+   		Thread.sleep(2500);
    		String goHere = driver.findElement(By.xpath("/html/body/div[2]/p[3]/a")).getText();
    		driver.get(goHere);
 	}
@@ -132,14 +132,14 @@ public class Bot {
 	   System.setProperty("webdriver.chrome.driver","/home/daniel/Documents/chromedriver");
 	   AccountLogger logger = new AccountLogger();
 
-       for(int i=1; i<500; i++){
+       for(int i=1; i< 300; i++){
     	   Bot bot = new Bot();
     	   bot.generateUsername();
 //    	   bot.generateEmail();
     	   bot.botGithub();
-    	   Thread.sleep(20000);
-    	   bot.verifyEmail(username);
-    	   bot.loginToVerify(username, password);
+//    	   Thread.sleep(20000);
+//    	   bot.verifyEmail(username);
+//    	   bot.loginToVerify(username, password);
     	   bot.killDriver();
     	   Random rand = new Random();
     	   logger.logAccount(username, password);
