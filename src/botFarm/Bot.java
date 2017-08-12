@@ -1,7 +1,12 @@
 package botFarm;
-import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
 import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import javax.imageio.ImageIO;
@@ -76,24 +81,27 @@ public class Bot {
 	
 	}
 	
-	public void imageGenerator() {
-		try {
-		     driver.get("http://agiletesters.com.br");
-		     
-		     WebElement logo = driver.findElement(By.cssSelector(".forum-logo"));
-		     String logoSRC = logo.getAttribute("src");
-		     
-		     URL imageURL = new URL(logoSRC);
-		     BufferedImage saveImage = ImageIO.read(imageURL);
-		     
-		     ImageIO.write(saveImage, "png", new File("logo-forum.png"));
-		     
-		     } catch (Exception e) {
-		        e.printStackTrace();
-		     } finally {
-		        driver.close();
-		     }
-	}
+//	public void imageGenerator() {
+//		try {
+//		     driver.get("http://agiletesters.com.br");
+////		     driver.get("https://randomuser.me/api/?inc=gender,name,nat,picture");
+//		     WebElement logo = driver.findElement(By.cssSelector(".forum-logo"));
+//		     String logoSRC = logo.getAttribute("src");
+//		     
+//		     URL imageURL = new URL(logoSRC);
+//		     BufferedImage saveImage = ImageIO.read(imageURL);
+//		     
+//		     ImageIO.write(saveImage, "jpg", new File("/home/daniel/Pictures/" + ));
+//		     
+//		     } catch (Exception e) {
+//		        e.printStackTrace();
+//		     } finally {
+//		        driver.close();
+//		     }
+//	}
+	
+	public void fancyUserGenerator(){
+
 
 
    public static void main(String[] args) throws InterruptedException  {
