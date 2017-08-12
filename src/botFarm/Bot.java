@@ -82,8 +82,9 @@ public class Bot {
 		driver.findElement(By.xpath("//*[@id=\"js-pjax-container\"]/div/div[2]/div/form/a")).click();
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[1]/div/div/form/label/input[1]")).sendKeys(myGithub);
 		driver.findElement(By.xpath("/html/body/div[1]/div[2]/div/div/div[1]/div/div/form/label/input[1]")).sendKeys(Keys.ENTER);
+		Thread.sleep(800);
 		driver.findElement(By.xpath("//*[@id=\"js-pjax-container\"]/div[1]/div/nav/a[6]")).click();
-		Thread.sleep(300);
+		Thread.sleep(1000);
 		driver.findElement(By.xpath("//*[@id=\"user_search_results\"]/div/div/div[1]/span/span[1]/form/button")).click();
 	
 	}
