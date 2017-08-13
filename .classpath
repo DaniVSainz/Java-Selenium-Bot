@@ -37,5 +37,8 @@
 	<classpathentry kind="lib" path="/home/daniel/Documents/selenium-java-3.5.0/lib/xercesImpl-2.11.0.jar"/>
 	<classpathentry kind="lib" path="/home/daniel/Documents/selenium-java-3.5.0/lib/xml-apis-1.4.01.jar"/>
 	<classpathentry kind="lib" path="/home/daniel/Documents/selenium-java-3.5.0/client-combined-3.5.0-nodeps.jar"/>
+	<classpathentry kind="lib" path="/home/daniel/Documents/java-json.jar"/>
+	<classpathentry kind="lib" path="/home/daniel/Documents/json-simple.jar"/>
+	<classpathentry kind="lib" path="/home/daniel/Documents/gson-2.6.2-javadoc.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
