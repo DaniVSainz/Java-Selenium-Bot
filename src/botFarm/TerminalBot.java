@@ -45,6 +45,7 @@ public class TerminalBot {
             p_stdin.write("exit");
             p_stdin.newLine();
             p_stdin.flush();
+            System.out.println("TERMINAL JUST EXITED");
         }
         catch (IOException e) {
             System.out.println(e);
@@ -58,13 +59,5 @@ public class TerminalBot {
     }
        s.close();
     }
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }

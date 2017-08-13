@@ -46,9 +46,10 @@ public class TerminalBotv2 {
 	}
 	
 	public void getOutput(Process currentTerminal) {
+
 		Scanner s = new Scanner( currentTerminal.getInputStream() );
-	    while (s.hasNext())
-	    {
+
+	    while (s.hasNext()){
 	    	System.out.println("Inside while");
 	        System.out.println( s.next() );
 	    }
@@ -59,7 +60,7 @@ public class TerminalBotv2 {
 	public void killTerminal(Process currentTerminal) throws InterruptedException {
 		String kill = "exit";
 		runProcess(currentTerminal, kill);
-//		getOutput(currentTerminal);
+		getOutput(currentTerminal);
 		System.out.println("Terminal shutdown");
 	}
 	
@@ -70,7 +71,7 @@ public class TerminalBotv2 {
 		Process currentTerminal = terminal.startTerminal();
 		terminal.runProcess(currentTerminal,testCommand);
 		terminal.runProcess(currentTerminal, "ls");
-//		terminal.getOutput(currentTerminal);
+		terminal.getOutput(currentTerminal);
 		terminal.killTerminal(currentTerminal);
 	}
 }
