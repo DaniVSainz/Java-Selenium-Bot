@@ -145,7 +145,7 @@ public class Bot {
     	   Random rand = new Random();
     	   logger.logAccount(username, password);
     	   System.out.println(username);
-    	   Thread.sleep(rand.nextInt(200000 + 35000));
+    	   Thread.sleep(rand.nextInt(200000 + 35001));
     	   
       }
    }
