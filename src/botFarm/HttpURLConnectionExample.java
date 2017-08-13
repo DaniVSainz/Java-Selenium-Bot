@@ -37,18 +37,18 @@ public class HttpURLConnectionExample {
 
     }
  
-//    public static void main(String[] args) {
-//    try {
-//        HttpURLConnectionExample example = new HttpURLConnectionExample();
-//        String getUrl = url;
-// 
-//        System.out.println("HttpURLConnection Examples:");
-//        System.out.println(example.get(getUrl));
-//
-//
-// 
-//    } catch (Exception e) {
-//        e.printStackTrace();
-//    }
-//    }
+    public static void main(String[] args) {
+    try {
+        HttpURLConnectionExample example = new HttpURLConnectionExample();
+        String getUrl = "https://randomuser.me/api/?inc=gender,name,nat,picutre";
+ 
+        System.out.println("HttpURLConnection Examples:");
+        System.out.println(example.get(getUrl));
+
+
+ 
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+    }
 }
