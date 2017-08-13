@@ -10,7 +10,7 @@ public class HttpURLConnectionExample {
  
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36";
  
-    public String get(String url) throws Exception {
+    public static String get(String url) throws Exception {
     String result = null;
  
     URL obj = new URL(url);
@@ -33,6 +33,7 @@ public class HttpURLConnectionExample {
         response.append(inputLine);
     }
     in.close();
+
     return result = response.toString();
 
     }
@@ -40,11 +41,10 @@ public class HttpURLConnectionExample {
     public static void main(String[] args) {
     try {
         HttpURLConnectionExample example = new HttpURLConnectionExample();
-        String getUrl = "https://randomuser.me/api/?inc=gender,name,nat,picutre";
+        String getUrl = "https://randomuser.me/api/?inc=gender,name,nat,picture";
  
-        System.out.println("HttpURLConnection Examples:");
-        System.out.println(example.get(getUrl));
-
+        JsonParser parse = new JsonParser();
+        System.out.println(parse.parseNewUser(get(getUrl)));
 
  
     } catch (Exception e) {
