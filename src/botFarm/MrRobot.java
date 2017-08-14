@@ -9,6 +9,7 @@ public class MrRobot {
 	
 	
 	public static void clickNextVpn(Robot myRobot) throws InterruptedException {
+		System.out.println("Hi from click next Vpn");
 		myRobot.mouseMove(1671, 9);
 		Thread.sleep(50);
 		click(myRobot);
@@ -25,14 +26,15 @@ public class MrRobot {
 	}
 	
 	public static void click(Robot myRobot) {
+		System.out.println("Clicking");
 		myRobot.mousePress(InputEvent.BUTTON1_DOWN_MASK);
 		myRobot.mouseRelease(InputEvent.BUTTON1_DOWN_MASK);
 	}
 	
 	
-	public static void main(String[] args) throws AWTException, InterruptedException {
-		 Robot myRobot = new Robot();
-		 clickNextVpn(myRobot);
+//	public static void main(String[] args) throws AWTException, InterruptedException {
+//		 Robot myRobot = new Robot();
+//		 clickNextVpn(myRobot);
 //		 closeConnection(myRobot);
-	}
+//	}
 }
