@@ -5,7 +5,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class HttpURLConnectionExample {
+public class GetRequest {
 	static String url ;
  
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36";
@@ -40,7 +40,7 @@ public class HttpURLConnectionExample {
  
     public static void main(String[] args) {
     try {
-        HttpURLConnectionExample example = new HttpURLConnectionExample();
+        GetRequest example = new GetRequest();
         String getUrl = "https://randomuser.me/api/?inc=gender,name,nat,picture";
  
         JsonParser parse = new JsonParser();
