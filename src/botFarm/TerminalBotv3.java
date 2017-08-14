@@ -32,37 +32,46 @@ public class TerminalBotv3 {
 			// TODO Auto-generated catch block
 			System.out.println(e1);
 		}
+		
+		try {
+			p_stdin.write("echo --------------------------------------------------------------------------------------------");
+			p_stdin.newLine();
+			p_stdin.flush();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 	
 	public void getOutput(Process newP) throws InterruptedException {
 	    Scanner s = new Scanner( newP.getInputStream() );
-	    while (s.nextLine().isEmpty() == false) {
-	    	if(s.nextLine().equals(" ")) {
-	    		break;
-	    	}else {
-	    		Thread.sleep(500);
-	    		System.out.println(s.nextLine());
-	    	}
+	    while (s.hasNext())
+	    {
+	        System.out.println( s.next() );
 	    }
-	    	s.close();
+	       s.close();
+	       System.out.println("**** STREAM CLOSED ****");
 	    }
+	
+
 	
 	public void killTerminal(Process newP) throws InterruptedException {
 		String kill = "exit";
 		runProcess(newP, kill);
-
+	
 		System.out.println("Terminal shutdown");
-	}
+	}	
 	
 	public static void main(String[] args) throws InterruptedException {
 
 		TerminalBotv3 terminal = new TerminalBotv3();
 		Process newP = terminal.startTerminal();
 		terminal.runProcess(newP,"cd");
-		terminal.runProcess(newP,"ls -s");
-		terminal.killTerminal(newP);
+		terminal.runProcess(newP,"ls");
+		terminal.runProcess(newP,"cd vpngate-with-proxy");
+		terminal.runProcess(newP,"./run tui");
+//		Thread.sleep(10000);
 		terminal.getOutput(newP);
-
 	}
 }
