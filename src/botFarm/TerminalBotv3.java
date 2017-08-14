@@ -67,11 +67,8 @@ public class TerminalBotv3 {
 
 		TerminalBotv3 terminal = new TerminalBotv3();
 		Process newP = terminal.startTerminal();
-		terminal.runProcess(newP,"cd");
-		terminal.runProcess(newP,"ls");
-		terminal.runProcess(newP,"cd vpngate-with-proxy");
-		terminal.runProcess(newP,"./run tui");
-//		Thread.sleep(10000);
+		terminal.runProcess(newP,"curl http://ipecho.net/plain; echo");
+		terminal.killTerminal(newP);
 		terminal.getOutput(newP);
 	}
 }

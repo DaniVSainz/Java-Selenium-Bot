@@ -33,5 +33,6 @@ public class MrRobot {
 	public static void main(String[] args) throws AWTException, InterruptedException {
 		 Robot myRobot = new Robot();
 		 clickNextVpn(myRobot);
+//		 closeConnection(myRobot);
 	}
 }
