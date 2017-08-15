@@ -40,6 +40,7 @@ public class ExecuteLoginPage {
 
 		LoginPage login = new LoginPage(driver);
 		login.typeUsernameAndVerify(myUser.getFirstName());
+		login.typeEmail(myUser.getEmail());
 	}
 	
 	public static void main(String[] args) throws Exception {
@@ -51,7 +52,7 @@ public class ExecuteLoginPage {
 		String request = requestor.get(apiUrl);
 //		parses the response and Triggers setUser after and returns the fakest user you've ever seen 
 		myUser = parseRequest.parseUserString(request);
-		
+//		Will run all my LoginMethods 
 		executeLogin();
 	}
 }
