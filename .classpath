@@ -43,5 +43,6 @@
 	<classpathentry kind="lib" path="/home/daniel/Documents/jackson-all-1.9.0.jar"/>
 	<classpathentry kind="lib" path="/home/daniel/Documents/jsonschema2pojo-core-0.4.37.jar"/>
 	<classpathentry kind="lib" path="/home/daniel/Downloads/minimal-json-0.9.4.jar"/>
+	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
