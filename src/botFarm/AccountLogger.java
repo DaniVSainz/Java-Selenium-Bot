@@ -7,7 +7,8 @@ import java.io.IOException;
 
 
 public class AccountLogger {
-
+//	This class provides logging functionality since passwords and username are randomly generated.
+//	
 	public void logAccount(String username,String password) {
 		final String FILENAME = "/home/daniel/eclipse-workspace/GithubBot/accounts.txt";
 		

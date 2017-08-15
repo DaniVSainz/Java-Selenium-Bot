@@ -10,6 +10,8 @@ public class GetRequest {
  
     private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Safari/537.36";
  
+    
+//  This class is to provide our get requests and returns a string to our Json Parser   
     public static String get(String url) throws Exception {
     String result = null;
  
@@ -38,6 +40,7 @@ public class GetRequest {
 
     }
  
+//    This class is mainly for testing purposes please ignore
     public static void main(String[] args) {
     try {
         GetRequest example = new GetRequest();
