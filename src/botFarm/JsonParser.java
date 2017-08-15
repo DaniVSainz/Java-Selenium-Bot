@@ -12,8 +12,8 @@ public class JsonParser {
 	String gender;
 	String firstName ;
 	String lastName ;
-	String nat;
-	String location;
+	String city;
+	String state;
 	String picture;
 	static String[] myUser = new String[6];
 	
