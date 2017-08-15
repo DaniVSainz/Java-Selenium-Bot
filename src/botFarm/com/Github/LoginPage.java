@@ -28,7 +28,7 @@ public class LoginPage {
 	By isUsernameTaken = By.xpath("//dd[contains(text(),'Username is ')]");
 	By email = By.xpath("//*[@id=\"user[email]\"]");
 	By password = By.xpath("//*[@id=\"user[password]\"]");
-	By signUpButton = By.xpath("//*[@id=\"user[password]\"]");
+	By signUpButton = By.xpath("html/body/div[4]/div[1]/div/div/div[2]/div/form/button");
 	
 	
 	public LoginPage(WebDriver driver) {
@@ -38,11 +38,12 @@ public class LoginPage {
 	public void typeUsernameAndVerify(String usernameStr) throws InterruptedException {
 		driver.findElement(username).click();
 		driver.findElement(username).sendKeys(usernameStr);
-		Thread.sleep(600);
+		Thread.sleep(4000);
 		while ( validateUsername() == true ) {
 			usernameStr = usernameStr + rand.nextInt(99) + 1;
 			driver.findElement(username).clear();
 			driver.findElement(username).sendKeys(usernameStr);
+			Thread.sleep(4000);
 		}
 	}
 	
@@ -64,7 +65,7 @@ public class LoginPage {
 	}
 	
 	public void signUp() {
-		driver.findElement(signUpButton);
+		driver.findElement(signUpButton).click();
 	}
 	
 	public static void main(String[] args) {

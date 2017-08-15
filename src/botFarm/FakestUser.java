@@ -88,12 +88,12 @@ public class FakestUser {
 		
 	}
 	public String getPassword() {
-		password = "C!@og" + password;
+		password = "C12!@og" + password;
 		return  password;
 	}
 	private void setPassword() {
 		SecureRandom random = new SecureRandom();
-		this.password = new BigInteger(130, random).toString(5);
+		this.password = new BigInteger(20, random).toString(5);
 	}
 	
 

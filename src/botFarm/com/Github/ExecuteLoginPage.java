@@ -39,7 +39,7 @@ public class ExecuteLoginPage {
 		login.signUp();
 	   AccountLogger logger = new AccountLogger();
  	   logger.logAccount(myUser.getUsername(), myUser.getPassword());
-		driver.quit();
+//		driver.quit();
 	}
 	
 	public static void setUser() throws Exception {
