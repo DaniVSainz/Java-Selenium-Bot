@@ -55,6 +55,7 @@ public class LoginPage {
 		         return false;
 		    }
 		}
+	
 	public void typeEmail() {
 		driver.findElement(email);
 	}
