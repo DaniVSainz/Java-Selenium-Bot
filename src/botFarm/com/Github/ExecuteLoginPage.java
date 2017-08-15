@@ -9,6 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import botFarm.AccountLogger;
 import botFarm.FakestUser;
 import botFarm.GetRequest;
 import botFarm.JsonParser;
@@ -19,20 +20,13 @@ import botFarm.JsonParser;
  */
 public class ExecuteLoginPage {
 	static String apiUrl = "https://randomuser.me/api/?inc=gender,name,nat,location,picture";
-	String gender;
-	String firstName ;
-	String lastName ;
-	String city;
-	String state;
-	String picture;
 	static FakestUser myUser ;
 	static Random rand = new Random();
-
-//	String usernameStr = firstName + lastName;
-	static String usernameStr = "danivsainz";
 	
 	@Test
-	public static void executeLogin() throws InterruptedException {
+	public static void run() throws Exception {
+		setUser();
+		
 		System.setProperty("webdriver.chrome.driver","/home/daniel/Documents/chromedriver");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().window().maximize();
@@ -43,10 +37,12 @@ public class ExecuteLoginPage {
 		login.typeEmail(myUser.getEmail());
 		login.typePassword(myUser.getPassword());
 		login.signUp();
+	   AccountLogger logger = new AccountLogger();
+ 	   logger.logAccount(myUser.getUsername(), myUser.getPassword());
 		driver.quit();
 	}
 	
-	public static void main(String[] args) throws Exception {
+	public static void setUser() throws Exception {
 //		Created our GetRequest class and JsonParser class and pass in the RandomUser api adress
 //		Pass the JSON String to the Parser and get a string array with the values back"
 		GetRequest requestor = new GetRequest();
@@ -56,6 +52,7 @@ public class ExecuteLoginPage {
 //		parses the response and Triggers setUser after and returns the fakest user you've ever seen 
 		myUser = parseRequest.parseUserString(request);
 //		Will run all my LoginMethods 
-		executeLogin();
 	}
+	
+
 }

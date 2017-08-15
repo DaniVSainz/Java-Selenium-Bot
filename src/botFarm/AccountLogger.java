@@ -21,7 +21,7 @@ public class AccountLogger {
 
 			// no need to close it.
 			//bw.close();
-
+			System.out.println("Added" + content);
 			System.out.println("Done");
 
 		} catch (IOException e) {
