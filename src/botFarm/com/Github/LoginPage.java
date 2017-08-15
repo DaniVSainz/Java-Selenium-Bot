@@ -6,6 +6,7 @@ package botFarm.com.Github;
 import java.util.Random;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -19,11 +20,8 @@ public class LoginPage {
 	String city;
 	String state;
 	String picture;
-	static String[] myUser = new String[6];
 	static Random rand = new Random();
-
-//	String usernameStr = firstName + lastName;
-	String usernameStr = "danivsainz";
+	String usernameStr;
 
 	WebDriver driver;
 	By username = By.xpath("//*[@id=\"user[login]\"]");
@@ -36,15 +34,26 @@ public class LoginPage {
 		this.driver = driver;
 	}
 //	Types in the provided username, if Username is taken alert appears adds random integers while it is displayed.
-	public void typeUsernameAndVerify(String userName) {
+	public void typeUsernameAndVerify(String usernameStr) throws InterruptedException {
 		driver.findElement(username).click();
 		driver.findElement(username).sendKeys(usernameStr);
-		if (driver.findElement(isUsernameTaken).isDisplayed()) {
+		Thread.sleep(600);
+		while ( validateUsername() == true ) {
 			usernameStr = usernameStr + rand.nextInt(99) + 1;
 			driver.findElement(username).clear();
 			driver.findElement(username).sendKeys(usernameStr);
 		}
 	}
+	
+//	Checks if user name is taken
+	protected boolean validateUsername() {
+		  try {
+			  driver.findElement(isUsernameTaken).getText();
+		      return true;
+		     } catch (NoSuchElementException e) {
+		         return false;
+		    }
+		}
 	public void typeEmail() {
 		driver.findElement(email);
 	}
