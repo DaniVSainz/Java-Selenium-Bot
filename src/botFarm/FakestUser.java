@@ -3,6 +3,9 @@
  */
 package botFarm;
 
+import java.math.BigInteger;
+import java.security.SecureRandom;
+
 /**
  * @author daniel
  * Getter and setters for user
@@ -16,6 +19,7 @@ public class FakestUser {
 	String picture;
 	String username;
 	String email;
+	String password;
 	
 	
 //	Sets all of our username Fields that we got from Parsed get Request ;) ;) 
@@ -29,8 +33,10 @@ public class FakestUser {
 	setPicture(myUser[5]);
 	setUsername(myUser[1], myUser[2]);
 	setEmail(myUser[1], myUser[2]);
+	setPassword();
 }
 	
+// ALl of our getters and setters
 
 	public String getGender() {
 		return gender;
@@ -80,6 +86,14 @@ public class FakestUser {
 	private void setEmail(String firstName,String lastName) {
 		this.email = firstName.replaceAll("^\"|\"$", "") + lastName.replaceAll("^\"|\"$", "") + "@maildrop.cc";
 		
+	}
+	public String getPassword() {
+		password = "C!@og" + password;
+		return  password;
+	}
+	private void setPassword() {
+		SecureRandom random = new SecureRandom();
+		this.password = new BigInteger(130, random).toString(5);
 	}
 	
 

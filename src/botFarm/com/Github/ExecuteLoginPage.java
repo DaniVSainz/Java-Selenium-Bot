@@ -41,6 +41,9 @@ public class ExecuteLoginPage {
 		LoginPage login = new LoginPage(driver);
 		login.typeUsernameAndVerify(myUser.getFirstName());
 		login.typeEmail(myUser.getEmail());
+		login.typePassword(myUser.getPassword());
+		login.signUp();
+		driver.quit();
 	}
 	
 	public static void main(String[] args) throws Exception {

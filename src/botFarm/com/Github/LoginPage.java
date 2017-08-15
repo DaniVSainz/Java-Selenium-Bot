@@ -59,8 +59,8 @@ public class LoginPage {
 	public void typeEmail(String userEmail) {
 		driver.findElement(email).sendKeys(userEmail);;
 	}
-	public void typePassword() {
-		driver.findElement(password);
+	public void typePassword(String userPassword) {
+		driver.findElement(password).sendKeys(userPassword);
 	}
 	
 	public void signUp() {
