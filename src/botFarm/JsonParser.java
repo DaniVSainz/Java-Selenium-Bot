@@ -20,7 +20,7 @@ public class JsonParser {
 
 //	Parses the string return from getRequest and assigns the values to a Array of Strings to be passed back
 //	to our bot
-	public static String[] parseNewUser(String jsonString) {
+	public static String[] parseUserString(String jsonString) {
 		JsonArray array = Json.parse(jsonString).asObject().get("results").asArray();
 		myUser[0] = array.get(0).asObject().get("gender").toString();
 		myUser[1] = array.get(0).asObject().get("name").asObject().get("first").toString();
@@ -35,6 +35,6 @@ public class JsonParser {
 	public static void main(String[] args) throws Exception {
 		String getUser = "https://randomuser.me/api/?inc=gender,name,nat,location,picture";
 		GetRequest requestor = new GetRequest();
-		System.out.println(Arrays.toString(parseNewUser(requestor.get(getUser))));
+		System.out.println(Arrays.toString(parseUserString(requestor.get(getUser))));
 	}
 }

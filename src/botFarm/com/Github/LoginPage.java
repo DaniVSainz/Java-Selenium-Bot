@@ -30,6 +30,7 @@ public class LoginPage {
 	By password = By.xpath("//*[@id=\"user[password]\"]");
 	By signUpButton = By.xpath("//*[@id=\"user[password]\"]");
 	
+	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 	}

@@ -41,17 +41,18 @@ public class GetRequest {
     }
  
 //    This class is mainly for testing purposes please ignore
-    public static void main(String[] args) {
-    try {
-        GetRequest example = new GetRequest();
-        String getUrl = "https://randomuser.me/api/?inc=gender,name,nat,picture";
- 
-        JsonParser parse = new JsonParser();
-        System.out.println(parse.parseNewUser(get(getUrl)));
-
- 
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-    }
+    
+//    public static void main(String[] args) {
+//    try {
+//        GetRequest example = new GetRequest();
+//        String getUrl = "https://randomuser.me/api/?inc=gender,name,nat,picture";
+// 
+//        JsonParser parse = new JsonParser();
+//        System.out.println(parse.parseNewUser(get(getUrl)));
+//
+// 
+//    } catch (Exception e) {
+//        e.printStackTrace();
+//    }
+//    }
 }

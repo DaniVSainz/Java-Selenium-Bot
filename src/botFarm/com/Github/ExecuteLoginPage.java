@@ -9,12 +9,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.Test;
 
+import botFarm.GetRequest;
+import botFarm.JsonParser;
+
 /**
  * @author daniel
  *	This will execute our login Page
  */
 public class ExecuteLoginPage {
-	
+	static String apiUrl = "https://randomuser.me/api/?inc=gender,name,nat,location,picture";
 	String gender;
 	String firstName ;
 	String lastName ;
@@ -39,7 +42,12 @@ public class ExecuteLoginPage {
 		login.typeUsernameAndVerify(usernameStr);
 	}
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws Exception {
+		GetRequest requestor = new GetRequest();
+		JsonParser parseRequest = new JsonParser();
+		String request = requestor.get(apiUrl);
+		myUser = parseRequest.parseUserString(request);
+		
 		executeLogin();
 	}
 }
