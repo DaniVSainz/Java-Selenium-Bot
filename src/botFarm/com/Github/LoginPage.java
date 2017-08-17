@@ -35,7 +35,7 @@ public class LoginPage {
 		this.driver = driver;
 	}
 //	Types in the provided username, if Username is taken alert appears adds random integers while it is displayed.
-	public void typeUsernameAndVerify(String usernameStr) throws InterruptedException {
+	public String typeUsernameAndVerify(String usernameStr) throws InterruptedException {
 		driver.findElement(username).click();
 		driver.findElement(username).sendKeys(usernameStr);
 		Thread.sleep(4000);
@@ -45,6 +45,7 @@ public class LoginPage {
 			driver.findElement(username).sendKeys(usernameStr);
 			Thread.sleep(4000);
 		}
+		return usernameStr;
 	}
 	
 //	Checks if user name is taken
@@ -68,7 +69,5 @@ public class LoginPage {
 		driver.findElement(signUpButton).click();
 	}
 	
-	public static void main(String[] args) {
-		
-	}
+
 }

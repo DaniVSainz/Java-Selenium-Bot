@@ -24,7 +24,7 @@ public class ExecuteLoginPage {
 	static Random rand = new Random();
 	
 	@Test
-	public static void run() throws Exception {
+	public static FakestUser run() throws Exception {
 		setUser();
 		
 		System.setProperty("webdriver.chrome.driver","/home/daniel/Documents/chromedriver");
@@ -33,13 +33,16 @@ public class ExecuteLoginPage {
 		driver.get("https://github.com/");
 
 		LoginPage login = new LoginPage(driver);
-		login.typeUsernameAndVerify(myUser.getFirstName());
+//		Calls the first method, and returns the users username after setting it in github
+//		I'm reSetting the users name 
+		myUser.setFirstName(login.typeUsernameAndVerify(myUser.getFirstName()));
 		login.typeEmail(myUser.getEmail());
 		login.typePassword(myUser.getPassword());
 		login.signUp();
 	   AccountLogger logger = new AccountLogger();
  	   logger.logAccount(myUser.getUsername(), myUser.getPassword());
 //		driver.quit();
+	return myUser;
 	}
 	
 	public static void setUser() throws Exception {
