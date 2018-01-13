@@ -88,16 +88,16 @@ public class TerminalBotv3 {
 		Process newP = terminal.startTerminal();
 		terminal.homeIp(newP);
 		System.out.println(myIp);
-		if (myIp == "73.205.194.186") {
+		if (myIp == "xxxxxxxxxx") {
 			MrRobot mrRobot = new MrRobot();
 			Robot mouseBot = new Robot();
 			mrRobot.clickNextVpn(mouseBot);
 		}
-		if (myIp == "73.205.194.186") {
+		if (myIp == "xxxxxxxxxxxx") {
 			MrRobot mrRobot = new MrRobot();
 			Robot mouseBot = new Robot();
 			mrRobot.clickNextVpn(mouseBot);
 		} 
-		System.out.println(myIp == "73.205.194.186");
+		System.out.println(myIp == "xxxxxxxxxxxxxxxx");
 	}
 }
